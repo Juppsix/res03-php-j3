@@ -16,9 +16,13 @@ La liste de tous les produits dont le prix est supérieur à 1 000 € ; SELECT 
 
 La liste de tous les produits associés à leurs photos respectives ; SELECT * FROM products JOIN pictures ON pictures.product_id = products.id
 
-La liste de tous les produits appartenant à la catégorie « Voyage » ; SELECT * FROM products JOIN products_categories ON products.id = product_categories.product_id JOIN categories ON categories.id = product_categories.category_id WHERE categories.title = "Voyage"
+La liste de tous les produits appartenant à la catégorie « Voyage » ; SELECT * FROM products JOIN products_categories ON products.id = products_categories.product_id JOIN categories ON categories.id = products_categories.category_id WHERE categories.title = "Voyage"
 
-La liste de tous les utilisateurs ayant effectué plus de dix commandes ;
+La liste de tous les utilisateurs ayant effectué plus de dix commandes ; 
+SELECT * FROM users 
+JOIN 
 
-La liste de tous les produits achetés par le premier utilisateur inscrit.
+La liste de tous les produits achetés par le premier utilisateur inscrit ;
+
+
 
