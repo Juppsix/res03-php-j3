@@ -4,19 +4,19 @@ La liste de tous les utilisateurs rangée par noms de famille ; SELECT last_name
 
 Le dernier utilisateur inscrit ; SELECT * FROM users order by registration_date
 
-La liste de tous les utilisateurs fêtant leur anniversaire ce mois-ci ; SELECT * FROM users WHERE birthdate = CURDATE()
+La liste de tous les utilisateurs fêtant leur anniversaire ce mois-ci ; SELECT * FROM users WHERE MONTH(users.birthdate) = MONTH(CURRENT_TIMESTAMP)
 
-Le nombre total d'utilisateurs ;
+Le nombre total d'utilisateurs ; SELECT COUNT(users.id) FROM users;
 
-La liste de tous les utilisateurs associés à leurs villes respectives ;
+La liste de tous les utilisateurs associés à leurs villes respectives ; SELECT * FROM users JOIN addresses ON addresses.user_id = users.id
 
-La liste de tous les utilisateurs vivant à une adresse sans numéro ;
+La liste de tous les utilisateurs vivant à une adresse sans numéro ; SELECT * FROM users JOIN addresses WHERE number IS NULL
 
-La liste de tous les produits dont le prix est supérieur à 1 000 € ;
+La liste de tous les produits dont le prix est supérieur à 1 000 € ; SELECT * FROM products WHERE price > 1000
 
-La liste de tous les produits associés à leurs photos respectives ;
+La liste de tous les produits associés à leurs photos respectives ; SELECT * FROM products JOIN pictures ON pictures.product_id = products.id
 
-La liste de tous les produits appartenant à la catégorie « Voyage » ;
+La liste de tous les produits appartenant à la catégorie « Voyage » ; SELECT * FROM products JOIN products_categories ON products.id = product_categories.product_id JOIN categories ON categories.id = product_categories.category_id WHERE categories.title = "Voyage"
 
 La liste de tous les utilisateurs ayant effectué plus de dix commandes ;
 
